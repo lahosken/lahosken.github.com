@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<!--
+  The fancy HTML/CSS/JS for this slideshow comes from
+  http://slides.html5rocks.com/, which is
+
+  Copyright 2011 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Chrome DevRel Team (chrome-devrel@googlegroups.com)
+                 Alex Russell (slightlyoff@chromium.org)
+                 Brad Neuberg
+
+  ===
+  Larry Hosken (lhosken@twitter.com) replaced the content of the original
+    slideshow (about HTML) with some less-interesting content (about
+    technical documentation). If you have questions about how to get
+    the slideshow working, ask Marcin and the Chrome folks. If you
+    have questions about technical docs, ask Larry.
+-->
+<html manifest="cache.appcache">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+    <title>Documentation: Threat or Menace?</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono" rel="stylesheet" type="text/css" />
+    <link id="prettify-link" href="src/prettify/prettify.css" rel="stylesheet" disabled />
+    <link href="css/default.css" class="theme" rel="stylesheet" media="screen"  />
+    <link href="css/common.css" rel="stylesheet" media="screen" />
+  </head>
+  <body>
+    <nav id="helpers">
+      <button title="Previous slide" id="nav-prev" class="nav-prev">⇽</button> 
+      <button title="Jump to a random slide" id="slide-no">5</button> 
+      <button title="Next slide" id="nav-next" class="nav-next">⇾</button>
+      <menu>
+        <button type="checkbox" data-command="toc" title="Table of Contents" class="toc">TOC</button>
+        <!-- <button type="checkbox" data-command="resources" title="View Related Resources">☆</button> -->
+        <button type="checkbox" data-command="notes" title="View Slide Notes">✏</button>
+<!--        <button type="checkbox" data-command="source" title="View slide source">↻</button> -->
+        <button type="checkbox" data-command="help" title="View Help">?</button>
+      </menu>
+    </nav>
+    <div class="presentation">
+      <div id="presentation-counter">Loading...</div>
+      <div class="slides">
+        <div class="slide" id="landing-slide">
+          <section class="middle">
+            <h1>Documentation:<br><small>Threat or Menace?</small></h1>
+
+               <p style="font-size: 24px; line-height: 40px;">
+               Tech Writing for Nerds<br>
+               <br>
+               How to write good-enough docs<br>
+               ...so co-workers don't ask weak questions<br>
+               ...but still ask interesting questions.
+
+<p class="resource-link"><a href="http://twitter.com/lahosken">@lahosken</a>
+          </section>
+          <aside class="note">
+            <section>
+              Welcome! (This field is for presenter notes and commentary.)
+            </section>
+          </aside>
+        </div>
+
+
+         <div class="slide" id="table-of-contents">
+          <header><h1>Today, we will cover...</h1></header>
+          <style>
+            #toc-list > li {
+              font-size: 26px;
+              line-height: 33px;
+              opacity: 0.85;
+            }
+            #toc-list > li:hover {
+              opacity: 1;
+            }
+            #toc-list a {
+              border-bottom: 0;
+            }
+            #toc-list a:hover{
+              border-bottom: 2px solid #3f3f3f;
+            }
+            #toc-list img {
+              vertical-align: middle;
+              margin-left: 15px;
+            }
+          </style>
+          <section>
+            <ul id="toc-list">
+            </ul>
+          </section>
+        </div>
+
+        <div class="slide transitionSlide" id="trust-no-one-title">
+          <section class="middle">
+            <h2>Trust No One</h2>
+            <img src="src/disapprove_256.png"
+                 title="The Doc which can be read is not The True Doc"
+                 alt="[Picture of Thumbs-Down]">
+          </section>
+        </div>
+
+        <div class="slide trust-no-one" id="welcome">
+          <section>
+            <p style="font-size: 40px;"><strong>Welcome!</strong>
+
+            <p style="font-size: 40px;">You don't want to reinvent wheels.
+
+            <p style="font-size: 40px;">The nerd next to you is
+                                        tired of questions.
+
+            <p style="font-size: 40px;">Docs will help, right? <em>Hmm...</em>
+          </section>
+          <aside class="note">
+            <section>
+              "Who here is is new to this organization?" Since we're in
+              high-tech, expect half the folks in the room to raise their
+              hands.
+            </section>
+          </aside>
+        </div>
+
+        <div class="slide trust-no-one" id="the-situation">
+          <section>
+            <p style="font-size: 40px;">You looked for the doc but you found...
+
+            <ul class="bullets">
+            <li>...nothing
+            <li>...three conflicting docs
+            <li>...a decoy
+            </ul>
+          </section>
+          <aside class="note">
+            <section>
+              There might be correct documentation out there somewhere.
+              But will you know it when you see it?
+            </section>
+          </aside>
+        </div>
+
+        <div class="slide transitionSlide" id="digging-title">
+          <section class="middle">
+            <h2>How do we Dig Out?</h2>
+
+            <img src="src/digout_256.png" title="...or were we supposed to _stop_ digging? I fergit" alt="[Picture of a Trowel]">
+          </section>
+        </div>
+
+
+        <div class="slide digging" id="writer-brain">
+          <section class="middle">
+
+            <p style="font-size: 60px;">Who is the audience?
+
+            <p style="font-size: 60px;">What are they trying to do?
+
+          </section>
+          <aside class="note">
+            <section>
+              Tech writers think about this <em>all the time</em>
+            </section>
+          </aside>
+        </div>
+
+        <div class="slide transitionSlide" id="creep-title">
+          <section class="middle">
+            <h2>Audience Creep</h2>
+
+            <img src="src/ivy_256.png" title="first a trowel, now ivy. What is this, gardening?" alt="[Picture of ivy leaf]">
+          </section>
+        </div>
+
+        <div class="slide creep" id="here-comes-everybody">
+          <section>
+
+            <p style="font-size: 60px;">Who is the audience?
+
+            <ul class="bullets">
+             <li>users <b>and</b> devs <b>and</b>... <b>and</b>...
+	     <li><b>everybody who cares</b> about...
+	    </ul>
+
+            <p style="font-size: 40px;">Uh-oh. Sounds like audience creep
+          </section>
+          <aside class="note">
+            <section>
+              While your doc is short, then "everybody" is probably an OK
+	      answer. But as your doc sprawls, you gotta chunk things up.
+            </section>
+          </aside>
+        </div>
+
+        <div class="slide creep" id="scope-creep">
+          <section>
+
+            <p style="font-size: 60px;">Scope Creep for Docs
+
+            <ul class="bullets">
+             <li>Can't find what you need
+	     <li>Can't recognize it
+             <li>Hard to maintain
+	    </ul>
+          </section>
+          <aside class="note">
+            <section>
+              There's a vicious cycle here. If you're not sure what a doc's
+              purpose is, then you don't know where to add stuff. But if
+              you tack more on to the wrong place, you can muddy the purpose
+              further.
+            </section>
+          </aside>
+        </div>
+
+        <div class="slide creep" id="pause-and-reflect">
+          <section>
+
+            <p style="font-size: 60px;">Pause and Reflect when...
+
+            <ul class="bullets">
+             <li>About to start writing
+	     <li>About to edit something
+             <li>Emerging from writing frenzy
+	    </ul>
+
+          </section>
+          <aside class="note">
+            <section>
+              <p>Who is the audience?<br>
+              What are they trying to do?
+
+              <p>Re-organizing documentation is like refactoring code.
+              When you think "I don't know where to add this thing", then
+              re-organize so that it's obvious where to add it.
+            </section>
+          </aside>
+        </div>
+
+        <div class="slide creep" id="shard-on-topic">
+          <section>
+
+            <p style="font-size: 40px;">How to Rein it in?
+
+            <ul class="bullets" style="font-size: 30px;">
+             <li>At doc top, 140-character summary
+             <li>Split part into a sub-doc
+	     <li>Cross-link between old and new docs
+	    </ul>
+
+            <div style="float:left; width: 49%; background-color: white;">
+              <b>FooBar Design</b><br>
+              This document describes the initial design of the
+              <u>FooBar service</u> (which bazzes garplies).
+              It used to also describe the <u>FooBar server configuration,
+              but that moved to another page</u>. Blah blah blah&hellip;
+	    </div>
+            <div style="float:right; width: 49%; background-color: white;">
+              <b>FooBar Server Configuration</b><br>
+              To configure servers for the <u>FooBar service</u> (which bazzes
+              garplies), you need to understand some fields in a
+              <tt>FooBarConfig</tt> object.
+              This doc makes more sense if you're familiar with the
+               <u>FooBar service design</u>. Blah blah blah&hellip;
+	    </div>
+          </section>
+          <aside class="note">
+            <section>
+              A great way to dissuade folks from adding irrelevant stuff to
+              your document is by saying up top what the doc is about.
+              If I don't know what your doc is about, I don't know what's
+              relevant or irrelevant.
+            </section>
+          </aside>
+        </div>
+
+        <div class="slide transitionSlide" id="own-title">
+          <section class="middle">
+            <h2>Owning a Good Doc</h2>
+
+            <img src="src/pen_256.png" title="Don't use an old-timey pen like this unless you are Neal Stephenson" alt="[Picture of pen nib]">
+          </section>
+        </div>
+
+        <div class="slide own" id="min">
+          <section>
+
+            <p style="font-size: 60px;">Minimum Docs
+
+            <div style="float:left; width: 49%;">
+            <ul class="bullets">
+             <li>140-ch. summ.
+             <li>Good for...
+             <li><em>Not</em> good for...
+            </ul>
+            </div>
+            <div style="float:right; width: 49%;">
+            <ul class="bullets">
+	     <li>Contact info
+             <li>Links to more
+	     <li>What folks ask
+	    </ul>
+            </div>
+          </section>
+          <aside class="note">
+            <section>
+              If you write everything you know about some topic, you'll
+              never get anything done. But you want to write enough so that
+              folks know whether they care about your thing. Then they'll
+              ask for other stuff. And when they ask for it, then you know
+              you should write it.<br>
+              <br>
+              You can get a head start on this. At parties, tell folks about
+              your thing. See what they ask you. If they ask you where to get
+              more beer, you're done writing your document. But if they ask
+              something about your project, remember that.<br>
+              <br>
+              Someone might have made a template with stuff folks ask about
+              your kind of project. That can be a nice head start. Unless
+              they "stuffed" the template with lots of useless crap.
+            </section>
+          </aside>
+        </div>
+
+        <div class="slide own" id="top-checklist">
+          <section>
+
+            <p style="font-size: 60px;">At the top of any page
+
+            <ul class="bullets">
+             <li>140-character topic summary
+	     <li>Questions &rarr; <var>myteam</var>@<var>wherever</var>.com
+             <li>Links to related documents
+	    </ul>
+          </section>
+          <aside class="note">
+            <section>
+              You think I'm being an overcute Twitter tweep when I ask for
+              a 140-character summary. But really I'm trying to fool you into
+              writing a summary that I could understand even if I'm an
+              ignoramus who has stumbled onto the wrong document.
+            </section>
+          </aside>
+        </div>
+
+        <div class="slide own" id="qwality">
+          <section>
+            <p style="font-size: 60px;">How to write high-quality?
+
+            <ul style="font-size: 40px;">
+             <li>(a) Perfect the first time* <em>or</em>
+	     <li>(b) Peer review
+	    </ul>
+
+            <p style="font-size: 40px;">
+             <em>Good Reviewers:</em> Noobs. Experts.
+             Yourself&nbsp;tomorrow&nbsp;morning.
+
+            <p style="text-align: center;">*&nbsp;Yes, that's a joke.
+          </section>
+         <aside class="note">
+            <section>
+              Embarrassed about your English? Ask a peer to
+              review. Surprise: they don't care.<br>
+              <br>
+              They probably got confused in several places,
+              but it probably doesn't correlate to English
+              problems. But if your sample code doesn't compile?
+              They will get confused.
+            </section>
+          </aside>
+        </div>
+
+        <div class="slide own" id="improving">
+          <section>
+
+            <p style="font-size: 60px;">Handling Suggestions
+
+            <ul class="bullets">
+             <li>Answers go into Doc
+	     <li>Misdirected reader? Link to right Doc
+             <li>N00b in l33t doc? Link to background
+	    </ul>
+          </section>
+         <aside class="note">
+            <section>
+             Someone asked a question. They are brave! They admitted ignorance.
+             They risked a bikeshed discussion. Now is your chance to call them
+             a moron. Now they're convinced that your thing is unusable and
+             that you're a jerk.
+
+             <p>Or be nice but in a way such that you
+             get fewer annoying questions in the future.
+             Answer for a price:
+             price: they have to write that answer into the docs.
+
+             <p>"N00b in l33t doc?" You write an advanced doc, which assumes
+             a lot of background knowledge. What do you do when a n00b stumbles
+             in and says you should clutter your doc with all that background?
+             Don't clutter your doc. But <em>do</em> link to places where
+             n00bs can get that background.
+            </section>
+          </aside>
+        </div>
+
+        <div class="slide transitionSlide" id="find-title">
+          <section class="middle">
+            <h2>"Findability"</h2>
+
+            <img src="src/sign_256.png" title="SEO for intranets" alt="[Picture of sign post]">
+          </section>
+        </div>
+
+        <div class="slide find" id="find-to">
+          <section>
+
+            <p style="font-size: 60px;">Get Folks To Your Doc
+
+            <ul class="bullets">
+             <li>Put your doc with other docs
+	     <li>Try to find it, link from there
+             <li>"Foo HowTo" "Bar PlayBook"
+	    </ul>
+          </section>
+         <aside class="note">
+            <section>
+             Don't hide it in your Google docs if folks won't
+             look for it there. Google Docs is nice for collaborating,
+             not good for finding.<br>
+             <br>
+             You group probably has some "usual suspects" document types.
+             It's good if you follow the usual pattern on how you can
+             find such a document. Can I find the Foo PlayBook by
+             going to the main Foo page and the word "playbook" is a link
+             to what I want?
+            </section>
+          </aside>
+        </div>
+
+        <div class="slide" id="formula-outro-slide">
+          <style>
+            .resource-link {
+              font-size: 40px;
+            }
+            .resource-link a {
+              color: blue;
+              text-decoration: underline;
+              border: none;
+            }
+          </style>
+          <section class="middle">
+            <p style="font-size: 60px;">Thank you!
+
+            <ul class="resource-link">
+            <li>Questions?
+            <li>Complaints?
+	    <li>Threats?
+            </ul>
+
+            <p class="resource-link"><a href="http://twitter.com/lahosken">@lahosken</a>
+          </section>
+        </div>
+
+      </div> <!-- slides -->
+      <div id="speaker-note" class="invisible" style="display: none;">
+      </div> <!-- speaker note -->
+      <aside id="help" class="sidebar invisible" style="display: hidden;">
+        <table>
+          <caption>Help</caption>
+          <tbody>
+            <tr>
+              <th>Move Around</th>
+              <td>&larr;&nbsp;&rarr;</td>
+            </tr>
+            <tr>
+              <th>Source File</th>
+              <td>s</td>
+            </tr>
+<!--
+            <tr>
+              <th>Change Theme</th>
+              <td>t</td>
+            </tr>
+-->
+<!--
+            <tr>
+              <th>Syntax Highlight</th>
+              <td>h</td>
+            </tr>
+-->
+            <tr>
+              <th>Speaker Notes</th>
+              <td>n</td>
+            </tr>
+<!--
+            <tr>
+              <th>Toggle 3D</th>
+              <td>3</td>
+            </tr>
+-->
+            <tr>
+              <th>Help</th>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+      </aside>
+    </div> <!-- presentation -->
+
+    <!--[if lt IE 9]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">
+    </script>
+    <script>CFInstall.check({ mode: "overlay" });</script>
+    <![endif]-->
+
+    <script src="src/prettify/prettify.js" onload="prettyPrint();" defer></script>
+    <script src="js/utils.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script>
+      // Check if new appcache is available, load it, and reload page.
+      if (window.applicationCache) {
+        window.applicationCache.addEventListener('updateready', function(e) {
+          if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+            window.applicationCache.swapCache();
+            if (confirm('A new version of this site is available. Load it?')) {
+              window.location.reload();
+            }
+          }
+        }, false);
+      }
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-15028909-5']);
+      _gaq.push(['_trackPageview']);
+      _gaq.push(['_trackPageLoadTime']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
