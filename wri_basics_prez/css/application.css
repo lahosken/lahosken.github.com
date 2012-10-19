@@ -1,0 +1,15 @@
+.item {
+  font-size: 40px;
+  line-height: 56px;
+  margin-bottom: 5em;
+}
+.item li {
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: 40px;
+  line-height: 56px;
+}
+.item p {
+  padding-left: 10%;
+  padding-right: 10%;
+}
