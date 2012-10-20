@@ -1,24 +1,26 @@
 !function ($) {
-
   $(function(){
 
-    // Disable certain links in docs
+    // Disable fake js-enabling href="#whatever" links
     $('section [href^=#]').click(function (e) {
       e.preventDefault()
     })
 
     var car = $('#mainCarousel')
-    var prev = function(ev){
+    car.carousel({interval: false}) /* Don't auto-advance */
+    car.click(function(ev){
+      if (ev && ev.target && ev.target.href) { return /* don't hijack links */ }
+      car.carousel("next")
+    })
+    $('#prevBtn').click(function(ev){
       car.carousel("prev")
       ev.preventDefault()
-    }
-    car.carousel({interval: false})
-    car.click(function(ev){
-      car.carousel("next")
-      ev.preventDefault()
     })
-    var prevBtn = $('#prevBtn')
-    prevBtn.click(prev)
+    var toIx = function(hash) {
+      var children = car.find('.item.active').parent().children()
+      var pos = children.index($(hash)) || 0
+      car.carousel(pos)
+    }
 
     document.onkeydown = function(ev){
       var HANDLERS = { // map keyCode -> direction
@@ -40,6 +42,9 @@
       }
       car.carousel("next")
       ev.preventDefault()
+    }
+    if (document.location && document.location.hash) {
+      toIx(document.location.hash)
     }
   })
 }(window.jQuery)
