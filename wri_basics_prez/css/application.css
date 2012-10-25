@@ -13,3 +13,9 @@
 .carousel-control {
   top: 200px; /* containing el's height not constant, so default % wobbles */
 }
+.note {
+  color: #bbb; font-size: 12px; float: right; border: 1px dotted #bbb;
+}
+.note:hover {
+  background-color: #bbb; color: #222;
+}
