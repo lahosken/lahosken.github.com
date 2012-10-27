@@ -1,10 +1,16 @@
 !function ($) {
   $(function(){
+    document.blork = []
 
     // Disable fake js-enabling href="#whatever" links
     $('section [href^=#]').click(function (e) {
       e.preventDefault()
     })
+
+    $('note').replaceWith(function() {
+        return '<div class="note"><a title="' + this.innerHTML + '" href="#" rel="tooltip" class="note">Speaker Notes</a></div>';
+    });
+    $('.note').tooltip({html: true})
 
     var car = $('#mainCarousel')
     car.carousel({interval: false}) /* Don't auto-advance */

@@ -5,6 +5,9 @@
   font-size: 40px;
   line-height: 56px;
   margin: 0px 10%;
+  border: 1px dotted #eee;
+  position: relative;
+  min-height: 400px;
 }
 .item li {
   font-size: 40px;
@@ -14,7 +17,11 @@
   top: 200px; /* containing el's height not constant, so default % wobbles */
 }
 .note {
-  color: #bbb; font-size: 12px; float: right; border: 1px dotted #bbb;
+  color: #bbb; background-color: #fff; border: 1px dotted #bbb;
+  font-size: 12px; line-height: 14px;
+  position: absolute;
+  left: 98%; margin-right: -10%;
+  top: 150px;
 }
 .note:hover {
   background-color: #bbb; color: #222;
