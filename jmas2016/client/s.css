@@ -1,0 +1,25 @@
+#glcanvas {
+    z-index: -1;
+    width: 100%;
+}
+#checklist {
+    z-index: -1;
+    width: 100%;
+}
+#deets {
+    display: none; /* shown when user visits a site */
+    background-color: white;
+    color: black;
+    z-index: 1;
+    position: absolute;
+    top: 10%;
+    left: 10%; width: 80%;
+    border: 1px dotted gray;
+    padding: 1em;
+}
+#deets h1 {
+    text-align: center;
+}
+#deetssplash {
+    width: 100%;
+}
