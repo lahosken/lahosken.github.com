@@ -51,6 +51,14 @@ function ll2canvas(lat, lng) {
     }
 }
 
+// km betwen two lat/lng locs
+function distanceLL(lat1, lng1, lat2, lng2) {
+    var dXKm = (lng1 - lng2) * cachedPos.kmPerLng;
+    var dYKm = (lat1 - lat2) * cachedPos.kmPerLat;
+    return Math.sqrt((dXKm * dXKm) + (dYKm * dYKm));
+}
+
+
 var textures = {};
 var i = new Image();
 i.src = './downtown_map_stretched.jpg';
@@ -138,7 +146,7 @@ function initGL() {
 
 function initChecklist() {
     var helper = function(hid) {
-	var d = $('<button class="ui-btn" id="btn' + hid + '" data-rel="popup">' + hexen[hid].ti +'</button>');
+	var d = $('<button class="ui-btn" id="btn' + hid + '" data-rel="popup"><span class="prox">∿</span>' + hexen[hid].ti +'<span class="prox">∿</span></button>');
 	var f = function() {
 	    showDeets(hid);
 	}
@@ -335,6 +343,19 @@ function pace() {
 	compeer_loc = {
 	    lat: pos.coords.latitude,
 	    lng: pos.coords.longitude,
+	}
+	$('.prox').html('∿');
+	var best_hid = '';
+	var best_dist = 100.0;
+	for (hid in hexen) {
+	    if (distanceLL(pos.coords.latitude, pos.coords.longitude, hexen[hid].lat, hexen[hid].lng) < best_dist) {
+		best_hid = hid;
+		best_dist = distanceLL(pos.coords.latitude, pos.coords.longitude, hexen[hid].lat, hexen[hid].lng);
+	    }
+	}
+	if (best_hid) {
+	    var sel = "#btnHID .prox".replace(/HID/, best_hid);
+	    $(sel).html('<span style="color: green;">✧</span>')
 	}
     });
 }
