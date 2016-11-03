@@ -33,8 +33,8 @@ hexen = {
 	    pw: 'arts' },
     plnt: { lat: 37.8699, lng: -122.2663, ti: "Allston Place, Allston Way",
 	    pw: 'main' },
-    poem: { lat: 37.8710, lng: -122.2693, ti: "The World, Center St.",
-	    pw: 'gong' },
+    poem: { lat: 37.8710, lng: -122.2693, ti: "The World, Addison St.",
+	    pw: 'much' },
     vine: { lat: 37.8696, lng: -122.2673, ti: "Trumpetvine Court",
 	    pw: 'muse' },
 };
@@ -237,7 +237,7 @@ function drawMapSignalHexen() {
 	gl.drawArrays(gl.LINE_STRIP, 0, 7);
     }
 
-    gl.uniform4f(glv.poly_color, 0.6, 0.0, 0.6, 1);
+    gl.uniform4f(glv.poly_color, 0.9, 0.7, 1.0, 1);
     yDel = hexSize * (0.25 + Math.random());
     xDel = yDel * xScale * (0.61 + Math.random());
 
