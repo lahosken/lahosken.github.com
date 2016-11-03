@@ -53,8 +53,8 @@ function ll2canvas(lat, lng) {
 
 // km betwen two lat/lng locs
 function distanceLL(lat1, lng1, lat2, lng2) {
-    var dXKm = (lng1 - lng2) * cachedPos.kmPerLng;
-    var dYKm = (lat1 - lat2) * cachedPos.kmPerLat;
+    var dXKm = (lng1 - lng2) *  88.5;
+    var dYKm = (lat1 - lat2) * 111.1;
     return Math.sqrt((dXKm * dXKm) + (dYKm * dYKm));
 }
 
