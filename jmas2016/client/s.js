@@ -314,10 +314,18 @@ function checkPW() {
     if (!guess) { return; }
     for (hid in hexen) {
 	if (guess == hexen[hid].pw) {
-	    $('#deetspw').val('')
-	    $('#btn' + hid).prop('disabled', true)
-	    hexen[hid].signal = true;
-	    $('#deets').hide()
+	    $('#deets').animate(
+		{"opacity": 0},
+		{
+		    duration: 1 * 1000,
+		    always: function() {
+			$('#deetspw').val('')
+			$('#btn' + hid).prop('disabled', true)
+			hexen[hid].signal = true;
+			$('#deets').hide();
+			$('#deets').css({"opacity": 1});
+		    },
+		});
 	    setTimeout(checkTriumph, 5 * 1000);
 	    return
 	}
