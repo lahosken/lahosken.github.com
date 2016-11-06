@@ -312,21 +312,24 @@ function drawMap() {
 function checkPW() {
     var guess = $('#deetspw').val().toLowerCase();
     if (!guess) { return; }
+    helper = function(hid) {
+	$('#deets').animate(
+	    {"opacity": 0},
+	    {
+		duration: 1 * 1000,
+		always: function() {
+		    $('#deetspw').val('')
+		    $('#btn' + hid).prop('disabled', true)
+		    hexen[hid].signal = true;
+		    $('#deets').hide();
+		    $('#deets').css({"opacity": 1});
+		},
+	    });
+	setTimeout(checkTriumph, 5 * 1000);
+    };
     for (hid in hexen) {
 	if (guess == hexen[hid].pw) {
-	    $('#deets').animate(
-		{"opacity": 0},
-		{
-		    duration: 1 * 1000,
-		    always: function() {
-			$('#deetspw').val('')
-			$('#btn' + hid).prop('disabled', true)
-			hexen[hid].signal = true;
-			$('#deets').hide();
-			$('#deets').css({"opacity": 1});
-		    },
-		});
-	    setTimeout(checkTriumph, 5 * 1000);
+	    helper(hid);
 	    return
 	}
     }
