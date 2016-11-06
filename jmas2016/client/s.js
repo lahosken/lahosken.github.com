@@ -162,10 +162,10 @@ function showDeets(hid) {
     $('#deetstitle').html(hexen[hid].ti)
     if (locblurb && locblurb[hid]) {
 	$('#deetsblurb').html(locblurb[hid]);
+	$('#deetsblurb nth-child(1)').after('<img id="#deetsplash" src="' + hid + '.jpg">');
     } else {
 	$('#deetsblurb').html('NOTHING HERE YET, SORRY. MAYBE CLICK <b>Oxford &amp; Addison</b> INSTEAD ' + hid);
     }
-    $('#deetssplash').attr('src', '' + hid + '.jpg')
     $('#deets').show();
 }
 
