@@ -1,0 +1,96 @@
+html{
+    font-family:sans-serif;
+    font-size:16px
+}
+@media (max-width: 940px){html{font-size:14px}}
+
+body{
+    background-color:#e6e8e9;
+    font-family:sans-serif
+}
+a{
+    background-color:transparent;
+}
+a:active, a:hover{
+	     outline-width:0
+}
+h1{
+    font-size:2em;margin:0.67em 0
+}
+small{
+    font-size:80%
+}
+sub,sup{
+    font-size:75%;line-height:0;position:relative;vertical-align:baseline
+}
+sub{
+    bottom:-0.25em
+}
+sup{
+    top:-0.5em
+}
+img{
+    border-style:none
+}
+code,kbd,pre,samp{
+    font-family:monospace, monospace;font-size:1em
+}
+hr{
+    box-sizing:content-box;height:0;overflow:visible
+}
+button,input,select,textarea{
+    font:inherit;margin:0
+}
+optgroup{
+    font-weight:bold
+}
+button,input{
+    overflow:visible
+}
+button,select{
+    text-transform:none
+}
+button{
+    border-radius:1em;
+    padding:5px 10px;
+    background-color:#e6e8e9;
+    border-color:#808d8f;
+    border-width:light;
+    border-style:solid;
+    color:#33494c;
+    cursor:pointer;
+    font-family: sans-serif;
+    font-weight:bold;
+    font-size:0.8rem;
+    transition:background-color 0.5s
+}
+button:active {
+    position:relative;top:1px;
+}
+fieldset{
+    border:1px solid #c0c0c0;
+    margin:0 2px;
+    padding:0.35em 0.625em 0.75em
+}
+legend{
+    box-sizing:border-box;
+    color:inherit;
+    display:table;
+    max-width:100%;
+    padding:0;
+    white-space:normal
+}
+textarea{
+    overflow:auto
+}
+h1,h2,h3,label{
+    font-family:sans-serif
+}
+fieldset{border:none}
+nav ul{margin:0}
+nav ul li{display:inline-block;float:left}
+
+a{color:#333;text-decoration:none}
+a:hover{color:#737373}
+
+ul{list-style:none}
