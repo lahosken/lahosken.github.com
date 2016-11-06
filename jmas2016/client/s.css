@@ -5,6 +5,11 @@
 #checklist {
     z-index: -1;
     width: 100%;
+    text-align: center;
+}
+#checklist > button {
+    width: 100%;
+    margin-bottom: 0.25em;
 }
 #deets {
     display: none; /* shown when user visits a site */
