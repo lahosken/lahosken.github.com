@@ -25,14 +25,18 @@ hexen = {
 	    pw: 'bike' },
     colg: { lat: 37.8699, lng: -122.2699, ti: "City College, Center St.",
 	    pw: 'make' },
+    /* messes up route
     drum: { lat: 37.8696, lng: -122.2717, ti: "MLK Park, Center St.",
 	    pw: 'idea' },
+     */
     fork: { lat: 37.8702, lng: -122.2679, ti: "Shattuck &amp; Center",
 	    pw: 'wind' },
     pasg: { lat: 37.8702, lng: -122.2691, ti: "Arts Passage, Center St.",
 	    pw: 'arts' },
+    /* bad smells
     plnt: { lat: 37.8699, lng: -122.2663, ti: "Allston Place, Allston Way",
 	    pw: 'main' },
+     */
     poem: { lat: 37.8710, lng: -122.2693, ti: "The World, Addison St.",
 	    pw: 'much' },
     vine: { lat: 37.8696, lng: -122.2673, ti: "Trumpetvine Court",
@@ -42,6 +46,9 @@ hexen = {
 for (hid in hexen) {
     hexen[hid].loc = ll2canvas(hexen[hid].lat, hexen[hid].lng)
     hexen[hid].signal = false;
+    var a = new Audio();
+    a.src = './talk.mp3'; // some day, we'll have an audio file per place, maybe?
+    hexen[hid].preloadaudio = a;
 }
 
 function ll2canvas(lat, lng) {
@@ -166,6 +173,8 @@ function showDeets(hid) {
     } else {
 	$('#deetsblurb').html('NOTHING HERE YET, SORRY. MAYBE CLICK <b>Oxford &amp; Addison</b> INSTEAD ' + hid);
     }
+    $('#walkaud').get(0).pause();
+    $('#deetsaud').attr('src', './talk.mp3');
     $('#deets').show();
 }
 
@@ -318,6 +327,8 @@ function checkPW() {
 	    {
 		duration: 1 * 1000,
 		always: function() {
+		    $('#deetsaud').get(0).pause();
+		    $('#walkaud').get(0).play();
 		    $('#deetspw').val('')
 		    $('#btn' + hid).prop('disabled', true)
 		    hexen[hid].signal = true;
@@ -380,6 +391,8 @@ $(document).ready(function() {
 
     $("#deetscancel").click(function() {
 	$('#deets').hide();
+	$('#deetsaud').get(0).pause();
+	$('#walkaud').get(0).play();
     });
     $('#deetspw').keydown(function(e){
 	if (e.keyCode && e.keyCode == 13) {
