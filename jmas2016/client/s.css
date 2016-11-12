@@ -15,6 +15,10 @@
     width: 100%;
     margin-bottom: 0.25em;
 }
+#checklist > button.signaled {
+    background-color: white;
+    font-variant: small-caps;
+}
 #deets {
     display: none; /* shown when user visits a site */
     background-color: white;

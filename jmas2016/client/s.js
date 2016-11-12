@@ -42,14 +42,17 @@ hexen = {
     vine: { lat: 37.8696, lng: -122.2673, ti: "Trumpetvine Court",
 	    pw: 'muse' },
 };
+signal = {}
 
 for (hid in hexen) {
     hexen[hid].loc = ll2canvas(hexen[hid].lat, hexen[hid].lng)
-    hexen[hid].signal = false;
+    signal[hid] = '';
     var a = new Audio();
     a.src = './talk.mp3'; // some day, we'll have an audio file per place, maybe?
     hexen[hid].preloadaudio = a;
 }
+
+var loc = ''; // most recent location we "visited" (pressed the button for)
 
 function ll2canvas(lat, lng) {
     return {
@@ -166,6 +169,7 @@ function initChecklist() {
 }
 
 function showDeets(hid) {
+    loc = hid;
     $('#deetstitle').html(hexen[hid].ti)
     if (locblurb && locblurb[hid]) {
 	$('#deetsblurb').html(locblurb[hid]);
@@ -175,6 +179,7 @@ function showDeets(hid) {
     }
     $('#walkaud').get(0).pause();
     $('#deetsaud').attr('src', './talk.mp3');
+    $('#deetspw').val(signal[hid])
     $('#deets').show();
 }
 
@@ -238,7 +243,7 @@ function drawMapSignalHexen() {
 
     for (hid in hexen) {
 	h = hexen[hid];
-	if (!h.signal) { continue; }
+	if (!signal[hid]) { continue; }
 	gl.bufferData(
             gl.ARRAY_BUFFER,
             new Float32Array([
@@ -260,7 +265,7 @@ function drawMapSignalHexen() {
 
     for (hid in hexen) {
 	h = hexen[hid];
-	if (h.signal) { continue; }
+	if (signal[hid]) { continue; }
 	gl.bufferData(
             gl.ARRAY_BUFFER,
             new Float32Array([
@@ -319,8 +324,10 @@ function drawMap() {
 }
 
 function checkPW() {
-    var guess = $('#deetspw').val().toLowerCase();
-    if (!guess) { return; }
+    var inp = $('#deetspw').val();
+    if (!inp) { return; }
+    signal[loc] = inp;
+    localStorage.signal = JSON.stringify(signal);
     helper = function(hid) {
 	$('#deets').animate(
 	    {"opacity": 0},
@@ -328,28 +335,20 @@ function checkPW() {
 		duration: 1 * 1000,
 		always: function() {
 		    $('#deetsaud').get(0).pause();
-		    $('#walkaud').get(0).play();
-		    $('#deetspw').val('')
-		    $('#btn' + hid).prop('disabled', true)
-		    hexen[hid].signal = true;
+		    $('#deetspw').val('');
+		    $('#btn' + hid).addClass('signaled').html('<span class="prox">∿</span>' + inp +'<span class="prox">∿</span>')
 		    $('#deets').hide();
 		    $('#deets').css({"opacity": 1});
 		},
 	    });
 	setTimeout(checkTriumph, 5 * 1000);
     };
-    for (hid in hexen) {
-	if (guess == hexen[hid].pw) {
-	    helper(hid);
-	    return
-	}
-    }
-    $('#deetspw').val('????');
+    helper(loc);
 }
 
 function checkTriumph() {
     for (hid in hexen) {
-	if (!hexen[hid].signal) {
+	if (!signal[hid]) {
 	    return
 	}
     }
@@ -383,6 +382,9 @@ function pace() {
 }
 
 $(document).ready(function() {
+    if (localStorage && localStorage.signal) {
+	signal = JSON.parse(localStorage.signal);
+    }
     initGL();
     initChecklist();
     $(window).resize(function(e) {
@@ -392,7 +394,6 @@ $(document).ready(function() {
     $("#deetscancel").click(function() {
 	$('#deets').hide();
 	$('#deetsaud').get(0).pause();
-	$('#walkaud').get(0).play();
     });
     $('#deetspw').keydown(function(e){
 	if (e.keyCode && e.keyCode == 13) {
