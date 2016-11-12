@@ -156,7 +156,8 @@ function initGL() {
 
 function initChecklist() {
     var helper = function(hid) {
-	var d = $('<button class="ui-btn" id="btn' + hid + '" data-rel="popup"><span class="prox">∿</span>' + hexen[hid].ti +'<span class="prox">∿</span></button><br>');
+	var t = signal[hid] || hexen[hid].ti;
+	var d = $('<button class="ui-btn" id="btn' + hid + '" data-rel="popup"><span class="prox">∿</span>' + t +'<span class="prox">∿</span></button><br>');
 	var f = function() {
 	    showDeets(hid);
 	}
