@@ -375,6 +375,7 @@ $(document).ready(function() {
     $(window).resize(function(e) {
 	$('#glcanvas').height($('#glcanvas').width() * downtown_h / downtown_w);
     });
+    $('#glcanvas').height($('#glcanvas').width() * downtown_h / downtown_w);
 
     $("#deetscancel").click(function() {
 	$('#deets').hide();
