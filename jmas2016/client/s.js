@@ -1,15 +1,15 @@
 // dimensions of our map texture (before distorting to 256x256)
-var downtown_w = 1218;
+var downtown_w = 948;
 var downtown_h = 680;
 
 // lat/lng info for our map
 var map_center = {
     lat: 37.8703,
-    lng: -122.2691
+    lng: -122.2683
 };
 var map_scale = { // canvas goes from -1.0 to 1.0.
     dLat: 37.8703 - 37.8688,
-    dLng: -122.2691 - -122.2723,
+    dLng: -122.2683 - -122.2709,
 };
 var compeer_loc = {
     lat: map_center.lat + 0.001,
@@ -17,30 +17,14 @@ var compeer_loc = {
 }
 
 hexen = {
-    bamp: { lat: 37.8716, lng: -122.2664, ti: "Oxford &amp; Addison",
-	    pw: 'ucpd' },
-    brow: { lat: 37.8695, lng: -122.2666, ti: "Brower Center, Allston Way",
-	    pw: 'area' },
-    clok: { lat: 37.8690, lng: -122.2680, ti: "Clock, Shattuck &amp; Allston",
-	    pw: 'bike' },
-    colg: { lat: 37.8699, lng: -122.2699, ti: "City College, Center St.",
-	    pw: 'make' },
-    /* messes up route
-    drum: { lat: 37.8696, lng: -122.2717, ti: "MLK Park, Center St.",
-	    pw: 'idea' },
-     */
-    fork: { lat: 37.8702, lng: -122.2679, ti: "Shattuck &amp; Center",
-	    pw: 'wind' },
-    pasg: { lat: 37.8702, lng: -122.2691, ti: "Arts Passage, Center St.",
-	    pw: 'arts' },
-    /* bad smells
-    plnt: { lat: 37.8699, lng: -122.2663, ti: "Allston Place, Allston Way",
-	    pw: 'main' },
-     */
-    poem: { lat: 37.8710, lng: -122.2693, ti: "The World, Addison St.",
-	    pw: 'much' },
-    vine: { lat: 37.8696, lng: -122.2673, ti: "Trumpetvine Court",
-	    pw: 'muse' },
+    bamp: { lat: 37.8716, lng: -122.2664, ti: "Oxford &amp; Addison" },
+    brow: { lat: 37.8695, lng: -122.2666, ti: "Brower Center, Allston Way" },
+    clok: { lat: 37.8690, lng: -122.2680, ti: "Clock, Shattuck &amp; Allston" },
+    colg: { lat: 37.8699, lng: -122.2699, ti: "City College, Center St." },
+    fork: { lat: 37.8702, lng: -122.2679, ti: "Shattuck &amp; Center" },
+    pasg: { lat: 37.8702, lng: -122.2691, ti: "Arts Passage, Center St." },
+    poem: { lat: 37.8710, lng: -122.2693, ti: "The World, Addison St." },
+    vine: { lat: 37.8696, lng: -122.2673, ti: "Trumpetvine Court" },
 };
 signal = {}
 
