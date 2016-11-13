@@ -141,7 +141,11 @@ function initGL() {
 function initChecklist() {
     var helper = function(hid) {
 	var t = signal[hid] || hexen[hid].ti;
-	var d = $('<button class="ui-btn" id="btn' + hid + '" data-rel="popup"><span class="prox">∿</span>' + t +'<span class="prox">∿</span></button><br>');
+	var cls = '';
+	if (signal[hid]) {
+	    cls = 'class="signaled" '
+	}
+	var d = $('<button ' + cls + ' id="btn' + hid + '" data-rel="popup"><span class="prox">∿</span>' + t +'<span class="prox">∿</span></button><br>');
 	var f = function() {
 	    showDeets(hid);
 	}
@@ -164,7 +168,13 @@ function showDeets(hid) {
     }
     $('#walkaud').get(0).pause();
     $('#deetsaud').attr('src', './talk.mp3');
-    $('#deetspw').val(signal[hid])
+    if (signal[hid]) {
+	$('#deetspw').prop("disabled", true).val(signal[hid]);
+	$('#deetsenterpw').hide();
+    } else {
+	$('#deetspw').prop("disabled", false).val('');
+	$('#deetsenterpw').show();
+    }
     $('#deets').show();
 }
 
