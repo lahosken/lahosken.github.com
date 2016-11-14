@@ -370,7 +370,7 @@ function pace() {
 	}
 	if (best_hid) {
 	    var sel = "#btnHID .prox".replace(/HID/, best_hid);
-	    $(sel).html('<span style="color: #0a0; background-color: $dfd;">✧</span>')
+	    $(sel).html('<span style="color: #0a0; background-color: #dfd;">✧</span>')
 	}
     });
 }
