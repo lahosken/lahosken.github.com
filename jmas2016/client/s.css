@@ -20,6 +20,10 @@
     background-color: #ddaaff;
     font-variant: small-caps;
 }
+button.near {
+    background-color: #aaffdd;
+    font-variant: small-caps;
+}
 #deets {
     display: none; /* shown when user visits a site */
     background-color: white;

@@ -19,28 +19,24 @@
     Your browser doesn't appear to support the <code>&lt;canvas&gt;</code> element.
   </canvas>
 
-  <div id="walkaudholder">
-    <audio id="walkaud" src="./walk.mp3" controls loop>
-      <p>Your browser does not support the <code>audio</code> element.</p>
-    </audio>
-  </div>
-
   <div id="checklist">
   </div>
 
   <div id="deets" data-role="popup">
     <h1 id="deetstitle"></h1>
+    <div id="deetsblurb"></div>
+    <center>When you're ready, press play:</center>
     <div id="deetsaudholder">
       <audio id="deetsaud" controls>
       <p>Your browser does not support the <code>audio</code> element.</p>
-    </audio>
+      </audio>
     </div>
-    <div id="deetsblurb"></div>
     <center>
     <span style="white-space: nowrap;"><input type="text" id="deetspw" placeholder="Enter...">
     <button id="deetsenterpw" class="ui-btn">Enter</button></span>
     <button id=deetscancel class="ui-btn">Cancel</button>
     </center>
+    <center style="padding-top: 0.5em;"><img id="deetssplash"></center>
   </div>
 </body>
 </html>

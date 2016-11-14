@@ -162,12 +162,11 @@ function showDeets(hid) {
     $('#deetstitle').html(hexen[hid].ti)
     if (locblurb && locblurb[hid]) {
 	$('#deetsblurb').html(locblurb[hid]);
-	$('#deetsblurb > :nth-child(1)').after('<img id="deetssplash" src="' + hid + '.jpg">');
     } else {
 	$('#deetsblurb').html('NOTHING HERE YET, SORRY. MAYBE CLICK <b>Oxford &amp; Addison</b> INSTEAD ' + hid);
     }
-    $('#walkaud').get(0).pause();
     $('#deetsaud').attr('src', './talk.mp3');
+    $('#deetssplash').attr('src', './HID.jpg'.replace(/HID/, hid));
     if (signal[hid]) {
 	$('#deetspw').prop("disabled", true).val(signal[hid]);
 	$('#deetsenterpw').hide();
@@ -371,7 +370,7 @@ function pace() {
 	}
 	if (best_hid) {
 	    var sel = "#btnHID .prox".replace(/HID/, best_hid);
-	    $(sel).html('<span style="color: green;">✧</span>')
+	    $(sel).html('<span style="color: #0a0; background-color: $dfd;">✧</span>')
 	}
     });
 }
