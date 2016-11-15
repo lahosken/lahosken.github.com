@@ -243,7 +243,7 @@ function drawMapSignalHexen() {
 	if (!signal[hid]) { continue; }
 	gl.bufferData(
             gl.ARRAY_BUFFER,
-            new Float32Array([
+            /*new Float32Array([ */ Float32Array.from([
 		h.loc.x - 2 * xDel, h.loc.y - yDel,
 		h.loc.x - 2 * xDel, h.loc.y + yDel,
 		h.loc.x + 0.0     , h.loc.y + 2 * yDel,
@@ -265,7 +265,7 @@ function drawMapSignalHexen() {
 	if (signal[hid]) { continue; }
 	gl.bufferData(
             gl.ARRAY_BUFFER,
-            new Float32Array([
+            /*new Float32Array([ */ Float32Array.from([
 		h.loc.x - 2 * xDel, h.loc.y - yDel,
 		h.loc.x - 2 * xDel, h.loc.y + yDel,
 		h.loc.x + 0.0     , h.loc.y + 2 * yDel,
