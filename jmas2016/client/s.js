@@ -64,6 +64,17 @@ var gl = {}; // webGL context
 var glv = {}; // GL variables holder
 var shaderPrograms = {};
 
+// for GL things, a square made of 2 triangles
+var sqF32Array = new Float32Array([ 
+		-1.0, -1.0,
+		-1.0,  1.0,
+	        1.0, -1.0,
+
+                1.0,  1.0,
+                1.0, -1.0,
+                -1.0,  1.0
+	])
+
 function getBitmapShaderProgram() {
     var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
     gl.shaderSource(fragmentShader, 'precision mediump float; uniform sampler2D tex; varying vec2 tex_pos; void main() { gl_FragColor = texture2D(tex, tex_pos); }');
@@ -197,15 +208,7 @@ function drawMapBackground() {
 
     gl.bufferData(
         gl.ARRAY_BUFFER,
-	new Float32Array([
-		-1.0, -1.0,
-		-1.0,  1.0,
-	        1.0, -1.0,
-
-                1.0,  1.0,
-                1.0, -1.0,
-                -1.0,  1.0
-	]),
+	sqF32Array,
         gl.STATIC_DRAW);
     gl.uniform1f(glv.icon_radius, 1.0);
 
@@ -350,6 +353,9 @@ function checkTriumph() {
 }
 
 function tick() {
+    if (document.hidden) {
+	return
+    }
     drawMap();
 }
 
