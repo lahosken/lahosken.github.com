@@ -32,9 +32,11 @@ for (hid in hexen) {
     hexen[hid].loc = ll2canvas(hexen[hid].lat, hexen[hid].lng)
     signal[hid] = '';
     var a = new Audio();
-    a.src = './talk.mp3'; // some day, we'll have an audio file per place, maybe?
+    a.src = './HID.mp3'.replace(/HID/, hid);
     hexen[hid].preloadaudio = a;
 }
+var preLoadWalk = new Audio();
+preLoadWalk = './walk.mp3';
 
 var loc = ''; // most recent location we "visited" (pressed the button for)
 
@@ -176,7 +178,7 @@ function showDeets(hid) {
     } else {
 	$('#deetsblurb').html('NOTHING HERE YET, SORRY. MAYBE CLICK <b>Oxford &amp; Addison</b> INSTEAD ' + hid);
     }
-    $('#deetsaud').attr('src', './talk.mp3');
+    $('#deetsaud').attr('src', './HID.mp3'.replace(/HID/, hid));
     $('#deetssplash').attr('src', './HID.jpg'.replace(/HID/, hid));
     if (signal[hid]) {
 	$('#deetspw').prop("disabled", true).val(signal[hid]);
@@ -243,7 +245,7 @@ function drawMapSignalHexen() {
 	if (!signal[hid]) { continue; }
 	gl.bufferData(
             gl.ARRAY_BUFFER,
-            /*new Float32Array([ */ Float32Array.from([
+            Float32Array.from([
 		h.loc.x - 2 * xDel, h.loc.y - yDel,
 		h.loc.x - 2 * xDel, h.loc.y + yDel,
 		h.loc.x + 0.0     , h.loc.y + 2 * yDel,
@@ -265,7 +267,7 @@ function drawMapSignalHexen() {
 	if (signal[hid]) { continue; }
 	gl.bufferData(
             gl.ARRAY_BUFFER,
-            /*new Float32Array([ */ Float32Array.from([
+            Float32Array.from([
 		h.loc.x - 2 * xDel, h.loc.y - yDel,
 		h.loc.x - 2 * xDel, h.loc.y + yDel,
 		h.loc.x + 0.0     , h.loc.y + 2 * yDel,
@@ -299,7 +301,7 @@ function drawMapCompeer() {
 
     gl.bufferData(
         gl.ARRAY_BUFFER,
-        new Float32Array([
+        Float32Array.from([
 	    c.x + 0 * xDel, c.y + 3 * yDel,
 	    c.x + 1 * xDel, c.y + 1 * yDel,
 	    c.x + 3 * xDel, c.y + 0 * yDel,
