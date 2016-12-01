@@ -322,9 +322,10 @@ function drawMap() {
     drawMapCompeer();
 }
 
-function checkPW() {
+function enterPhrase() {
     var inp = $('#deetspw').val();
     if (!inp) { return; }
+    inp = inp.replace('&', '&amp;').replace('<', '&lt;');
     signal[loc] = inp;
     localStorage.signal = JSON.stringify(signal);
     helper = function(hid) {
@@ -351,7 +352,7 @@ function checkTriumph() {
 	    return
 	}
     }
-    $('#checklist').html('<p>∿∿∿Wow, you got &apos;em all. Something not-so-anticlimatic as this should probably happen.∿∿∿')
+    $('#mapholder').html('<center><p>∿∿∿The time to follow maps has passed.∿∿∿ <p>&nbsp;<p>∿∿∿Listen to this:∿∿∿<p><audio id="walkaud" src="./walk.mp3" controls></center>')
 }
 
 function tick() {
@@ -400,12 +401,13 @@ $(document).ready(function() {
     });
     $('#deetspw').keydown(function(e){
 	if (e.keyCode && e.keyCode == 13) {
-	    checkPW();
+	    enterPhrase();
 	    return false
 	}
     });
-    $('#deetsenterpw').click(checkPW);
+    $('#deetsenterpw').click(enterPhrase);
 
     setInterval(tick, 1000/60);
     setInterval(pace, 10 * 1000);
+    setTimeout(checkTriumph, 5 * 1000);
 })
