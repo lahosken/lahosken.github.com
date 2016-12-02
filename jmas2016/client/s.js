@@ -372,14 +372,25 @@ function pace() {
 	var best_hid = '';
 	var best_dist = 100.0;
 	for (hid in hexen) {
+	    var sel = "#btnHID".replace(/HID/, hid);
+	    $(sel).css({
+		"font-size": "normal",
+		"font-weight": "normal",
+		"padding": "2px",
+	    });
 	    if (distanceLL(pos.coords.latitude, pos.coords.longitude, hexen[hid].lat, hexen[hid].lng) < best_dist) {
 		best_hid = hid;
 		best_dist = distanceLL(pos.coords.latitude, pos.coords.longitude, hexen[hid].lat, hexen[hid].lng);
 	    }
 	}
 	if (best_hid) {
-	    var sel = "#btnHID .prox".replace(/HID/, best_hid);
-	    $(sel).html('<span style="color: #0a0; background-color: #dfd;">✧</span>')
+	    var sel = "#btnHID".replace(/HID/, best_hid);
+	    $(sel).css({
+		"font-size": "xx-large",
+		"font-weight": "bold",
+		"padding": "12px",
+	    });
+	    $(sel + ' .prox').html('<span style="color: #0a0; background-color: #dfd;">✧</span>')
 	}
     });
 }
