@@ -390,7 +390,7 @@ function pace() {
 		"font-weight": "bold",
 		"padding": "12px",
 	    });
-	    $(sel + ' .prox').html('<span style="color: #0a0; background-color: #dfd;">✧</span>')
+	    $(sel + ' .prox').html('<span style="color: #0a0;">✧</span>')
 	}
     });
 }
