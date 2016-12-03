@@ -386,7 +386,7 @@ function pace() {
 	if (best_hid) {
 	    var sel = "#btnHID".replace(/HID/, best_hid);
 	    $(sel).css({
-		"font-size": "xx-large",
+		"font-size": "x-large",
 		"font-weight": "bold",
 		"padding": "12px",
 	    });
@@ -420,5 +420,6 @@ $(document).ready(function() {
 
     setInterval(tick, 1000/60);
     setInterval(pace, 10 * 1000);
+    pace();
     setTimeout(checkTriumph, 5 * 1000);
 })
