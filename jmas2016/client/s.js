@@ -420,8 +420,16 @@ $(document).ready(function() {
     });
     $('#deetsenterpw').click(enterPhrase);
 
-    setInterval(tick, 1000/60);
-    setInterval(pace, 10 * 1000);
-    pace();
+    if (window.location.href.search(/fancy=no/) < 0) {
+	setInterval(tick, 1000/60);
+	setInterval(pace, 10 * 1000);
+	pace();
+    } else {
+	var i = new Image();
+	i.width = downtown_w / 2;
+	i.height = downtown_h / 2;
+	i.src = './downtown_map_stretched.jpg';
+	$('#mapholder').html(i);
+    }
     setTimeout(checkTriumph, 5 * 1000);
 })

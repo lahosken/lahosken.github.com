@@ -2,6 +2,9 @@
     z-index: -1;
     width: 100%;
 }
+#mapholder {
+    text-align: center;
+}
 #walkaudholder {
     width: 100%;
     text-align: center;
