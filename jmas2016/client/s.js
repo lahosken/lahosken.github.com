@@ -35,8 +35,10 @@ for (hid in hexen) {
     a.src = './HID.mp3'.replace(/HID/, hid);
     hexen[hid].preloadaudio = a;
 }
-var preLoadWalk = new Audio();
-preLoadWalk = './walk.mp3';
+var preLoadWalk1 = new Audio();
+preLoadWalk1.src = './wal1.mp3';
+var preLoadWalk2 = new Audio();
+preLoadWalk1.src = './wal2.mp3';
 
 var loc = ''; // most recent location we "visited" (pressed the button for)
 
@@ -352,7 +354,7 @@ function checkTriumph() {
 	    return
 	}
     }
-    $('#mapholder').html('<center><p>∿∿∿The time to follow maps has passed.∿∿∿ <p>&nbsp;<p>∿∿∿Listen to this:∿∿∿<p><audio id="walkaud" src="./walk.mp3" controls></center>')
+    $('#mapholder').html('<center><p>Now that you have had an opportunity to speak with some Guardians in their own language, we invite you to walk with them just a short distance further. Take a few breaths, rest if you would like to take a break for a moment. When you are ready, return to the large tuning fork, and listen: <p>Track&nbsp;1:&nbsp;<audio id="walkaud1" src="./wal1.mp3" controls></audio><br>Track&nbsp;2:&nbsp;<audio id="walkaud2" src="./wal2.mp3" controls></audio></center>')
 }
 
 function tick() {
