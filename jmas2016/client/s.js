@@ -354,7 +354,7 @@ function checkTriumph() {
 	    return
 	}
     }
-    $('#mapholder').html('<center><p>Now that you have had an opportunity to speak with some Guardians in their own language, we invite you to walk with them just a short distance further. Take a few breaths, rest if you would like to take a break for a moment. When you are ready, return to the large tuning fork, and listen: <p>Track&nbsp;1:&nbsp;<audio id="walkaud1" src="./wal1.mp3" controls></audio><br>Track&nbsp;2:&nbsp;<audio id="walkaud2" src="./wal2.mp3" controls></audio></center>')
+    $('#mapholder').html('<center><p>Now that you have had an opportunity to speak with some Guardians in their own language, we invite you to walk with them just a short distance further. Take a few breaths, rest if you would like to take a break for a moment. When you are ready, return to the large tuning fork, and listen: <p>Track&nbsp;1:&nbsp;<audio id="walkaud1" src="./wal1.mp3" controls></audio><br>Track&nbsp;2:&nbsp;<audio id="walkaud2" src="./wal2.mp3" controls></audio><p><b>Testers:</b> Right now, the audio says there is a bridge to your <em>left</em>, but means there is a bridge to your <em>right</em>. Go right! </center>')
 }
 
 function tick() {
