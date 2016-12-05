@@ -1,7 +1,7 @@
 // this file generated automatically. don't edit by hand, silly
 
 locblurb = {
-  bamp: "  <p>A little plaza sits on the northwest corner of Oxford &amp; Addison.\n    A short metal fence bounds this plaza's south side, preventing the\n    careless from tumbling into a sunken parking lot. Go there.\n",
+  bamp: "  <p>Go to the corner of Shattuck and University Avenues. Then play this:\n  <p><b>Testers:</b> The photo is wrong. Sorry. We'll get a better one.\n",
   brow: "  <p>Make your way to 2150 Allston Way, between Shattuck and Oxford Streets.\n    There find a fence made of metal \u201cslats\u201d with a design twisted into them.\n    The design might remind you of a pair of eyes or perhaps a sound wave.\n    When you\u2019re by the fence, listen to this:\n",
   clok: "  <p>On the west side of Shattuck Avenue a few paces south of Allston Way,\n    a clock measures time and announces it to all people within view.\n",
   colg: "  <p>At 2050 Center Street, east of Milvia, is Berkeley City College.\n    Enter the building and walk up some steps to the atrium,\n    where a thin, woven metal fence surrounds a hole below.\n    \n  <p>Pace around this fence as you listen to this track.\n",
