@@ -4,12 +4,12 @@ var downtown_h = 680;
 
 // lat/lng info for our map
 var map_center = {
-    lat: 37.8703,
-    lng: -122.2683
+    lat: 37.8707,
+    lng: -122.2681
 };
 var map_scale = { // canvas goes from -1.0 to 1.0.
-    dLat: 37.8703 - 37.8688,
-    dLng: -122.2683 - -122.2709,
+    dLat:   37.8707 -   37.8726,
+    dLng: -122.2681 - -122.2708,
 };
 var compeer_loc = {
     lat: map_center.lat + 0.001,
@@ -17,7 +17,7 @@ var compeer_loc = {
 }
 
 hexen = {
-    bamp: { lat: 37.8716, lng: -122.2664, ti: "Oxford &amp; Addison" },
+    bamp: { lat: 37.8716, lng: -122.2664, ti: "Shattuck &amp; University" },
     brow: { lat: 37.8695, lng: -122.2666, ti: "Brower Center, Allston Way" },
     clok: { lat: 37.8690, lng: -122.2680, ti: "Clock, Shattuck &amp; Allston" },
     colg: { lat: 37.8699, lng: -122.2699, ti: "City College, Center St." },
@@ -426,9 +426,8 @@ $(document).ready(function() {
 	pace();
     } else {
 	var i = new Image();
-	i.width = downtown_w / 2;
-	i.height = downtown_h / 2;
-	i.src = './downtown_map_stretched.jpg';
+	i.src = './downtown_map.jpg';
+	i.style = 'max-width: 100%';
 	$('#mapholder').html(i);
     }
     setTimeout(checkTriumph, 5 * 1000);
