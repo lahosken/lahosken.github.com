@@ -17,7 +17,7 @@ var compeer_loc = {
 }
 
 hexen = {
-    bamp: { lat: 37.8716, lng: -122.2664, ti: "Shattuck &amp; University" },
+    bamp: { lat: 37.8720, lng: -122.2685, ti: "Shattuck &amp; University" },
     brow: { lat: 37.8695, lng: -122.2666, ti: "Brower Center, Allston Way" },
     clok: { lat: 37.8690, lng: -122.2680, ti: "Clock, Shattuck &amp; Allston" },
     colg: { lat: 37.8699, lng: -122.2699, ti: "City College, Center St." },
