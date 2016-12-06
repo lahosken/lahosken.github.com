@@ -8,8 +8,8 @@ var map_center = {
     lng: -122.26821
 };
 var map_scale = { // canvas goes from -1.0 to 1.0.
-    dLat:   37.87074 -   37.87261,
-    dLng: -122.26821- -122.27095,
+    dLat:   37.87261 -   37.87074,
+    dLng: -122.26821 - -122.27095,
 };
 var compeer_loc = {
     lat: map_center.lat + 0.001,
