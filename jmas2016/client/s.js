@@ -18,12 +18,12 @@ var compeer_loc = {
 
 hexen = {
     bamp: { lat: 37.8720, lng: -122.2685, ti: "Shattuck &amp; University" },
-    brow: { lat: 37.8695, lng: -122.2666, ti: "Brower Center, Allston Way" },
+    brow: { lat: 37.8695, lng: -122.2666, ti: "2150 Allston Way" },
     clok: { lat: 37.8690, lng: -122.2680, ti: "Clock, Shattuck &amp; Allston" },
-    colg: { lat: 37.8699, lng: -122.2699, ti: "City College, Center St." },
+    colg: { lat: 37.8699, lng: -122.2699, ti: "2050 Center St." },
     fork: { lat: 37.8702, lng: -122.2679, ti: "Shattuck &amp; Center" },
-    pasg: { lat: 37.8702, lng: -122.2691, ti: "Arts Passage, Center St." },
-    poem: { lat: 37.8710, lng: -122.2693, ti: "The World, Addison St." },
+    pasg: { lat: 37.8702, lng: -122.2691, ti: "2055 Center St." },
+    poem: { lat: 37.8710, lng: -122.2693, ti: "2020 Addison St." },
     vine: { lat: 37.8696, lng: -122.2673, ti: "Trumpetvine Court" },
 };
 signal = {}
