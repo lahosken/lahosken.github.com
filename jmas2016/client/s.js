@@ -4,12 +4,12 @@ var downtown_h = 680;
 
 // lat/lng info for our map
 var map_center = {
-    lat: 37.8707,
-    lng: -122.2681
+    lat:   37.87074,
+    lng: -122.26821
 };
 var map_scale = { // canvas goes from -1.0 to 1.0.
-    dLat:   37.8707 -   37.8726,
-    dLng: -122.2681 - -122.2708,
+    dLat:   37.87074 -   37.87261,
+    dLng: -122.26821- -122.27095,
 };
 var compeer_loc = {
     lat: map_center.lat + 0.001,
