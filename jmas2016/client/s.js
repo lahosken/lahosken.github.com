@@ -17,14 +17,22 @@ var compeer_loc = {
 }
 
 hexen = {
-    bamp: { lat: 37.8720, lng: -122.2685, ti: "Shattuck &amp; University" },
-    brow: { lat: 37.8695, lng: -122.2666, ti: "2150 Allston Way" },
-    clok: { lat: 37.8690, lng: -122.2680, ti: "Clock, Shattuck &amp; Allston" },
-    colg: { lat: 37.8699, lng: -122.2699, ti: "2050 Center St." },
-    fork: { lat: 37.8702, lng: -122.2679, ti: "Shattuck &amp; Center" },
-    pasg: { lat: 37.8702, lng: -122.2691, ti: "2055 Center St." },
-    poem: { lat: 37.8710, lng: -122.2693, ti: "2020 Addison St." },
-    vine: { lat: 37.8696, lng: -122.2673, ti: "Trumpetvine Court" },
+    bamp: { lat: 37.8720, lng: -122.2685, ti: "Shattuck &amp; University",
+	    h1: "Tangible Forms" },
+    brow: { lat: 37.8695, lng: -122.2666, ti: "2150 Allston Way",
+	    h1: "Barrier&nbsp;/ Carrier" },
+    clok: { lat: 37.8690, lng: -122.2680, ti: "Clock, Shattuck &amp; Allston",
+	    h1: "Times &amp; Chimes" },
+    colg: { lat: 37.8699, lng: -122.2699, ti: "2050 Center St.",
+	    h1: "Cycles" },
+    fork: { lat: 37.8702, lng: -122.2679, ti: "Shattuck &amp; Center",
+	    h1: "Earthsong" },
+    pasg: { lat: 37.8702, lng: -122.2691, ti: "2055 Center St.",
+	    h1: "Passage" },
+    poem: { lat: 37.8710, lng: -122.2693, ti: "2020 Addison St.",
+	    h1: "The World" },
+    vine: { lat: 37.8696, lng: -122.2673, ti: "Trumpetvine Court",
+	    h1: "Court" },
 };
 signal = {}
 
@@ -174,7 +182,8 @@ function initChecklist() {
 
 function showDeets(hid) {
     loc = hid;
-    $('#deetstitle').html(hexen[hid].ti)
+    $('#deetsaddr').html(hexen[hid].ti)
+    $('#deetsh1').html(hexen[hid].h1)
     if (locblurb && locblurb[hid]) {
 	$('#deetsblurb').html(locblurb[hid]);
     } else {
@@ -430,5 +439,6 @@ $(document).ready(function() {
 	i.style = 'max-width: 100%';
 	$('#mapholder').html(i);
     }
-    setTimeout(checkTriumph, 5 * 1000);
+    setTimeout(checkTriumph, 1 * 1000);
+    setInterval(checkTriumph, 5 * 1000);
 })
