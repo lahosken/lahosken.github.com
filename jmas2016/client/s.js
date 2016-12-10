@@ -190,7 +190,11 @@ function showDeets(hid) {
 	$('#deetsblurb').html('NOTHING HERE YET, SORRY. MAYBE CLICK <b>Oxford &amp; Addison</b> INSTEAD ' + hid);
     }
     $('#deetsaud').attr('src', './HID.mp3'.replace(/HID/, hid));
-    $('#deetssplash').attr('src', './HID.jpg'.replace(/HID/, hid));
+    var splash_src = './HID.jpg'.replace(/HID/, hid);
+    if (hid == 'bamp') {
+	splash_src = './bamp.gif';
+    }
+    $('#deetssplash').attr('src', splash_src);
     if (signal[hid]) {
 	$('#deetspw').prop("disabled", true).val(signal[hid]);
 	$('#deetsenterpw').hide();
