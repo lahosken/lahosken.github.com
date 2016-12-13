@@ -43,10 +43,10 @@ for (hid in hexen) {
     a.src = './HID.mp3'.replace(/HID/, hid);
     hexen[hid].preloadaudio = a;
 }
-var preLoadWalk1 = new Audio();
-preLoadWalk1.src = './wal1.mp3';
-var preLoadWalk2 = new Audio();
-preLoadWalk1.src = './wal2.mp3';
+var preLoadB1 = new Audio();
+preLoadB1.src = './breathe1.mp3';
+var preLoadB2 = new Audio();
+preLoadB2.src = './breathe2.mp3';
 
 var loc = ''; // most recent location we "visited" (pressed the button for)
 
@@ -361,13 +361,21 @@ function enterPhrase() {
     helper(loc);
 }
 
+var foo = 12;
+
 function checkTriumph() {
     for (hid in hexen) {
 	if (!signal[hid]) {
 	    return
 	}
     }
-    $('#mapholder').html('<center><p>Now that you have had an opportunity to speak with some Guardians in their own language, we invite you to walk with them just a short distance further. Take a few breaths, rest if you would like to take a break for a moment. When you are ready, return to the large tuning fork, and listen: <p>Track&nbsp;1:&nbsp;<audio id="walkaud1" src="./wal1.mp3" controls></audio><br>Track&nbsp;2:&nbsp;<audio id="walkaud2" src="./wal2.mp3" controls></audio></center>')
+    $('#mapholder').html('<center><h1>Breathe</h1> <p>Now that you have had an opportunity to speak with some Guardians in their own language, we invite you to walk with them just a short distance further. Take a few breaths, rest if you would like to take a break for a moment. When you are ready, return to the large tuning fork, and listen: <p>Track&nbsp;1:&nbsp;<audio id="breaud1" src="./breathe1.mp3" controls></audio><br>Track&nbsp;2:&nbsp;<audio id="breaud2" src="./breathe2.mp3" controls></audio><p><img id="breimg" src="fork.jpg"></center>')
+    $('#breaud2').on('timeupdate', function(e) {
+	var t = e.target.currentTime;
+	if (t > 5 && t < 25) {
+	    $('#breimg').attr('src', 'xing.jpg');
+	}
+    })
 }
 
 function tick() {
@@ -444,5 +452,4 @@ $(document).ready(function() {
 	$('#mapholder').html(i);
     }
     setTimeout(checkTriumph, 1 * 1000);
-    setInterval(checkTriumph, 5 * 1000);
 })
