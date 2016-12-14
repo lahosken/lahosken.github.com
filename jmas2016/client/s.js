@@ -29,7 +29,7 @@ hexen = {
 	    h1: "Earthsong" },
     pasg: { lat: 37.8702, lng: -122.2691, ti: "2055 Center St.",
 	    h1: "Passage" },
-    poem: { lat: 37.8710, lng: -122.2693, ti: "2020 Addison St.",
+    poem: { lat: 37.8710, lng: -122.2693, ti: "2030 Addison St.",
 	    h1: "The World" },
     vine: { lat: 37.8696, lng: -122.2673, ti: "Trumpetvine Court",
 	    h1: "Court" },
@@ -369,10 +369,13 @@ function checkTriumph() {
 	    return
 	}
     }
-    $('#mapholder').html('<center><h1>Breathe</h1> <p>Now that you have had an opportunity to speak with some Guardians in their own language, we invite you to walk with them just a short distance further. Take a few breaths, rest if you would like to take a break for a moment. When you are ready, return to the large tuning fork, and listen: <p>Track&nbsp;1:&nbsp;<audio id="breaud1" src="./breathe1.mp3" controls></audio><br>Track&nbsp;2:&nbsp;<audio id="breaud2" src="./breathe2.mp3" controls></audio><p><img id="breimg" src="fork.jpg"></center>')
+    $('#mapholder').html('<center><h1>Breathe</h1> <p>Now that you have had an opportunity to speak with some Guardians in their own language, we invite you to walk with them just a short distance further. Take a few breaths, rest if you would like to take a break for a moment. When you are ready, return to the large tuning fork, and listen: <p>Track&nbsp;1:&nbsp;<audio id="breaud1" src="./breathe1.mp3" controls></audio><br>Track&nbsp;2:&nbsp;<audio id="breaud2" src="./breathe2.mp3" controls></audio><p><img id="breimg" src="wtw.jpg"></center>')
     $('#breaud2').on('timeupdate', function(e) {
 	var t = e.target.currentTime;
-	if (t > 5 && t < 25) {
+	if (t < 10) {
+	    $('#breimg').attr('src', 'bridge.jpg');
+	}
+	if (t > 55 && t < 75) {
 	    $('#breimg').attr('src', 'xing.jpg');
 	}
     })
