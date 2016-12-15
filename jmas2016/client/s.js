@@ -191,11 +191,9 @@ function showDeets(hid) {
     }
     $('#deetsaud').attr('src', './HID.mp3'.replace(/HID/, hid));
     var splash_src = './HID.jpg'.replace(/HID/, hid);
-    
-    /* arg, need a GIF for this intersection
     if (hid == 'bamp') {
 	splash_src = './bamp.gif';
-    } */
+    }
     $('#deetssplash').attr('src', splash_src);
     if (signal[hid]) {
 	$('#deetspw').prop("disabled", true).val(signal[hid]);
