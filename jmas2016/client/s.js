@@ -1,15 +1,15 @@
-// dimensions of our map texture (before distorting to 256x256)
-var downtown_w = 948;
-var downtown_h = 680;
+// dimensions of our map texture (before distorting to 128x128)
+var downtown_w = 1024;
+var downtown_h = 658;
 
 // lat/lng info for our map
 var map_center = {
-    lat:   37.87074,
+    lat:   37.87028,
     lng: -122.26821
 };
 var map_scale = { // canvas goes from -1.0 to 1.0.
-    dLat:   37.87261 -   37.87074,
-    dLng: -122.26821 - -122.27095,
+    dLat:   37.87165 -   37.87028,
+    dLng: -122.26821 - -122.27093,
 };
 var compeer_loc = {
     lat: map_center.lat + 0.001,
@@ -17,7 +17,7 @@ var compeer_loc = {
 }
 
 hexen = {
-    bamp: { lat: 37.8720, lng: -122.2685, ti: "Shattuck &amp; University",
+    bamp: { lat: 37.8713, lng: -122.2676, ti: "2045 Shattuck Ave",
 	    h1: "Tangible Forms" },
     brow: { lat: 37.8695, lng: -122.2666, ti: "2150 Allston Way",
 	    h1: "Barrier&nbsp;/ Carrier" },
