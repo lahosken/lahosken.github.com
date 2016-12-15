@@ -7,7 +7,7 @@ locblurb = {
   colg: "  <p>At 2050 Center Street, east of Milvia, is <b>Berkeley City College</b>.\n    Enter the building and walk up some steps to the atrium,\n    where a thin, woven metal fence surrounds a hole below.\n    \n  <p>Pace around this fence as you listen to this track.\n",
   fork: "  <p>There is an island at the intersection of Shattuck Ave and Center St, and in the middle of the island there is a giant, red tuning fork. \n\n  <p>Walk up to it, and press play.\n",
   pasg: "  <p>Look around you, feel in your pockets.\n    Do you have a penny, or can you find a pebble?\n    Once you have, make your way to the <b>Arts Passage</b>\n    at 2055 Center Street, between Shattuck and Milvia.\n    Make your way into the passage, and press play. \n",
-  poem: "  <p>On the south side of Addison Street near a dangling potted\n    plant attached to a streetlight, there is a poem embedded in\n    the sidewalk, entitled <b>THE WORLD</b>.\n    Once you locate it, play the track below.\n",
+  poem: "  <p>On the south side of Addison Street near a dangling potted\n    plant attached to a streetlight, there is a poem embedded in\n    the sidewalk, entitled <b>THE WORLD</b>. The photo might help\n    you find the proper poetic plaque.\n    Once you locate it, play the track below.\n",
   vine: "  <p>Go to Trumpetvine Court. It\u2019s a courtyard behind Jupiter Taproom;\n    there are entrance passageways on Allston Way and on Shattuck.\n    When you\u2019re there, listen:\n",
 
 }
