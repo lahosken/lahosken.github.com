@@ -1,7 +1,7 @@
 // this file generated automatically. don't edit by hand, silly
 
 locblurb = {
-  bamp: "  <p>Go to the corner at 2045 Shattuck Avenue.\n    Stand on the sidewalk, look around. Then play this:\n",
+  bamp: "  <p>On this corner of Shattuck Square and Addison Street,\n    a slightly more peaceful space just a block away from\n    the crowded bustling thoroughfares that surround you,\n    take a moment. Stand on the sidewalk and\n    pay attention to those cross your path as you listen to the audio below.\n",
   brow: "  <p>Make your way to 2150 Allston Way, between Shattuck and Oxford Streets.\n    There, find a fence made of metal \u201cslats\u201d with a design twisted into them.\n    The design might remind you of a pair of eyes or perhaps a sound wave.\n    When you\u2019re by the fence, listen to this:\n",
   clok: "  <p>On the west side of Shattuck Avenue a few paces south of Allston Way,\n    a clock measures time and announces it to all people within view.\n",
   colg: "  <p>At 2050 Center Street, east of Milvia, is <b>Berkeley City College</b>.\n    Enter the building and walk up some steps to the atrium,\n    where a thin, woven metal fence surrounds a hole below.\n    \n  <p>Pace around this fence as you listen to this track.\n",

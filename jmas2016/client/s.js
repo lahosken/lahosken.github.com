@@ -21,7 +21,7 @@ hexen = {
 	    h1: "Tangible Forms" },
     brow: { lat: 37.8695, lng: -122.2666, ti: "2150 Allston Way",
 	    h1: "Barrier&nbsp;/ Carrier" },
-    clok: { lat: 37.8690, lng: -122.2680, ti: "Shattuck &amp; Allston",
+    clok: { lat: 37.8692, lng: -122.2680, ti: "Shattuck &amp; Allston",
 	    h1: "Clocks" },
     colg: { lat: 37.8699, lng: -122.2699, ti: "2050 Center St.",
 	    h1: "Cycles" },
@@ -164,11 +164,11 @@ function initGL() {
 function initChecklist() {
     var helper = function(hid) {
 	var t = signal[hid] || hexen[hid].ti;
-	var cls = '';
+	var cls = 'class="far" ';
 	if (signal[hid]) {
-	    cls = 'class="signaled" '
+	    cls = 'class="signaled far" '
 	}
-	var d = $('<button ' + cls + ' id="btn' + hid + '" data-rel="popup"><span class="prox">∿</span>' + t +'<span class="prox">∿</span></button><br>');
+	var d = $('<button ' + cls + ' id="btn' + hid + '" data-rel="popup"><span class="prox">∿</span>&nbsp;' + t +'&nbsp;<span class="prox">∿</span></button><br>');
 	var f = function() {
 	    showDeets(hid);
 	}
@@ -191,9 +191,11 @@ function showDeets(hid) {
     }
     $('#deetsaud').attr('src', './HID.mp3'.replace(/HID/, hid));
     var splash_src = './HID.jpg'.replace(/HID/, hid);
+    
+    /* arg, need a GIF for this intersection
     if (hid == 'bamp') {
 	splash_src = './bamp.gif';
-    }
+    } */
     $('#deetssplash').attr('src', splash_src);
     if (signal[hid]) {
 	$('#deetspw').prop("disabled", true).val(signal[hid]);
@@ -370,6 +372,15 @@ function checkTriumph() {
 	}
     }
     $('#mapholder').html('<center><h1>Breathe</h1> <p>Now that you have had an opportunity to speak with some Guardians in their own language, we invite you to walk with them just a short distance further. Take a few breaths, rest if you would like to take a break for a moment. When you are ready, return to the large tuning fork, and listen: <p>Track&nbsp;1:&nbsp;<audio id="breaud1" src="./breathe1.mp3" controls></audio><br>Track&nbsp;2:&nbsp;<audio id="breaud2" src="./breathe2.mp3" controls></audio><p><img id="breimg" src="wtw.jpg"></center>')
+    $('#breaud1').on('timeupdate', function(e) {
+	var t = e.target.currentTime;
+	if (t < 10) {
+	    $('#breimg').attr('src', 'wtw.jpg');
+	}
+	if (t > 120 && t < 140) {
+	    $('#breimg').attr('src', 'sphr.jpg');
+	}
+    })
     $('#breaud2').on('timeupdate', function(e) {
 	var t = e.target.currentTime;
 	if (t < 10) {
@@ -389,7 +400,16 @@ function tick() {
 }
 
 function pace() {
-    navigator.geolocation.getCurrentPosition(function(pos) {
+    navigator.geolocation.getCurrentPosition(function(pos) { 
+
+	// handy snippet of code to un-comment if you're faking geo pos
+	/*
+	var pos = {};
+	pos.coords = {}
+	pos.coords.latitude = map_center.lat - 0.001 + (0.002 * Math.random());
+	pos.coords.longitude = map_center.lng - 0.001 + (0.002 * Math.random());
+        */
+    
 	compeer_loc = {
 	    lat: pos.coords.latitude,
 	    lng: pos.coords.longitude,
@@ -399,11 +419,7 @@ function pace() {
 	var best_dist = 100.0;
 	for (hid in hexen) {
 	    var sel = "#btnHID".replace(/HID/, hid);
-	    $(sel).css({
-		"font-size": "normal",
-		"font-weight": "normal",
-		"padding": "2px",
-	    });
+	    $(sel).addClass('far').removeClass('near');
 	    if (distanceLL(pos.coords.latitude, pos.coords.longitude, hexen[hid].lat, hexen[hid].lng) < best_dist) {
 		best_hid = hid;
 		best_dist = distanceLL(pos.coords.latitude, pos.coords.longitude, hexen[hid].lat, hexen[hid].lng);
@@ -411,14 +427,10 @@ function pace() {
 	}
 	if (best_hid) {
 	    var sel = "#btnHID".replace(/HID/, best_hid);
-	    $(sel).css({
-		"font-size": "x-large",
-		"font-weight": "bold",
-		"padding": "12px",
-	    });
+	    $(sel).addClass('near').removeClass('far');
 	    $(sel + ' .prox').html('<span style="color: #0a0;">✧</span>')
 	}
-    });
+  });
 }
 
 $(document).ready(function() {
